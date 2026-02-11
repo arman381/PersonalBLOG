@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhreads - Social Network</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🥖</span>
+                <span class="logo-text">Bhreads</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" class="active"><span class="material-symbols-outlined">home</span></a></li>
+                <li id="nav-profile" style="display: none;"><a href="/profile"><span class="material-symbols-outlined">account_circle</span></a></li>
+                <li id="nav-login"><a href="/login"><span class="material-symbols-outlined">login</span></a></li>
+                <li id="nav-register"><a href="/register"><span class="material-symbols-outlined">person_add</span></a></li>
+                <li id="nav-logout" style="display: none;"><a href="#" id="logout-btn"><span class="material-symbols-outlined">logout</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="feed-wrapper">
+        <!-- Create Post Form (only for authenticated users) -->
+        <div id="auth-post-box" class="create-post-card" style="display: none;">
+            <div class="create-post-header">
+                <img id="user-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=me" class="avatar" alt="avatar">
+                <div class="create-post-info">
+                    <span id="user-name" class="username">Guest</span>
+                    <span id="user-badge" class="role-badge"></span>
+                </div>
+            </div>
+            <div class="create-post-body">
+                <form id="new-post-form">
+                    <input type="text" name="title" placeholder="Title (optional)" class="post-title-input">
+                    <textarea name="content" placeholder="Share your thoughts..." required class="post-content-textarea"></textarea>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Publish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Posts Container -->
+        <div id="posts-container">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading posts...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Comments Modal -->
+    <div id="comment-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Comments</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="comments-container"></div>
+                <div class="add-comment-form">
+                    <textarea id="comment-text" placeholder="Write a comment..." class="comment-input"></textarea>
+                    <button id="submit-comment" class="btn-primary">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
